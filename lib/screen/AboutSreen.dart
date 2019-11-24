@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sleep_timer_pro_next/constants/AppConstants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutSreen extends StatelessWidget {
   @override
@@ -76,18 +77,30 @@ class AboutSreen extends StatelessWidget {
                 "For more infomation please connect with",
                 style: TextStyle(fontSize: 17, color: Colors.white),
               ),
-              Text(
-                "candystarvn@gmail.cơm",
-                style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.redAccent,
-                    fontStyle: FontStyle.italic,
-                    decoration: TextDecoration.underline),
+              GestureDetector(
+                onTap: _sendEmail,
+                child: Text(
+                  "candystarvn@gmail.cơm",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.redAccent,
+                      fontStyle: FontStyle.italic,
+                      decoration: TextDecoration.underline),
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  _sendEmail() async {
+    var url = "mailto:candystarvn@gmail.cơm";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

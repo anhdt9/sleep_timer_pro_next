@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   url_launcher: ^5.2.5
   sleek_circular_slider: ^1.0.7
+  provider: ^3.1.0+1
+  flutter_local_notifications: ^0.8.4+3
 
 dev_dependencies:
   flutter_test:
